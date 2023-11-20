@@ -19,7 +19,7 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.Scanner;
 
-public class LaptopFiltration{
+public class LaptopFiltration {
     public static void main(String[] args) {
         Laptop laptop1 = new Laptop(4, 100, "Win7", "grey", 12, "ASUS", 400);
         Laptop laptop2 = new Laptop(8, 200, "Win10", "grey", 13, "Lenovo", 600);
@@ -30,16 +30,19 @@ public class LaptopFiltration{
         Laptop cri = new Laptop(0, 0, "-", "-", 0, "-", 0);
         Scanner scanner = new Scanner(System.in);
         while (true) {
-            System.out.println("Введите цифру, соответствующую необходимому критерию или выбору:\n" +
-                    "1 - ОЗУ (4, 8, 16)\n" +
-                    "2 - Объем ЖД (100, 200, 500)\n" +
-                    "3 - Операционная система (Win7, Win10, Win11, Mac)\n" +
-                    "4 - Цвет (grey, white, black)\n" +
-                    "5 - Диагональ экрана (12, 13, 14, 15)\n" +
-                    "6 - Производитель (ASUS, Lenovo, MSI, Apple)\n" +
-                    "7 - Цена (400, 600, 800, 900, 1100)\n\n" +
-                    "8 - Показать ноутбуки с выбранными критериями\n" +
-                    "9 - Выход\n");
+            System.out.println("""
+                    Введите цифру, соответствующую необходимому критерию или выбору:
+                    1 - ОЗУ (4, 8, 16)
+                    2 - Объем ЖД (100, 200, 500)
+                    3 - Операционная система (Win7, Win10, Win11, Mac)
+                    4 - Цвет (grey, white, black)
+                    5 - Диагональ экрана (12, 13, 14, 15)
+                    6 - Производитель (ASUS, Lenovo, MSI, Apple)
+                    7 - Цена (400, 600, 800, 900, 1100)
+
+                    8 - Показать ноутбуки с выбранными критериями
+                    9 - Выход
+                    """);
             int choice = scanner.nextInt();
             if (choice == 9) {
                 break;
@@ -48,33 +51,33 @@ public class LaptopFiltration{
             if (choice == 1) {
                 cri.memory = scanner.nextInt();
             }
-            if (choice == 2) {
+            else if (choice == 2) {
                 cri.sizeHdd = scanner.nextInt();
             }
-            if (choice == 3) {
+            else if (choice == 3) {
                 cri.os = scanner.next();
             }
-            if (choice == 4) {
+            else if (choice == 4) {
                 cri.color = scanner.next();
             }
-            if (choice == 5) {
+            else if (choice == 5) {
                 cri.screenSize = scanner.nextInt();
             }
-            if (choice == 6) {
+            else if (choice == 6) {
                 cri.manufacturer = scanner.next();
             }
-            if (choice == 7) {
+            else if (choice == 7) {
                 cri.price = scanner.nextInt();
             }
-            if (choice == 8) {
+            else if (choice == 8) {
                 for (Laptop laptop : hashSet) {
                     if ((cri.memory <= laptop.memory || cri.memory == 0) &&
-                        (cri.sizeHdd <= laptop.sizeHdd || cri.sizeHdd == 0) &&
-                        (cri.os.equals(laptop.os) || cri.os.equals("-")) &&
-                        (cri.color.equals(laptop.color) || cri.color.equals("-")) &&
-                        (cri.screenSize <= laptop.screenSize || cri.screenSize == 0) &&
-                        (cri.manufacturer.equals(laptop.manufacturer) || cri.manufacturer.equals("-")) &&
-                        (cri.price <= laptop.price || cri.price == 0)) {
+                            (cri.sizeHdd <= laptop.sizeHdd || cri.sizeHdd == 0) &&
+                            (cri.os.equals(laptop.os) || cri.os.equals("-")) &&
+                            (cri.color.equals(laptop.color) || cri.color.equals("-")) &&
+                            (cri.screenSize <= laptop.screenSize || cri.screenSize == 0) &&
+                            (cri.manufacturer.equals(laptop.manufacturer) || cri.manufacturer.equals("-")) &&
+                            (cri.price <= laptop.price || cri.price == 0)) {
 
                         System.out.println(laptop);
                         System.out.println();
