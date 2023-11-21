@@ -87,5 +87,6 @@ public class LaptopFiltration {
                 scanner.next();
             }
         }
+        scanner.close();
     }
 }
